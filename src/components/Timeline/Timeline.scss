@@ -1,0 +1,412 @@
+@import "/node_modules/bootstrap/scss/bootstrap";
+@import "../../variables";
+
+$bigpicture-size: 40%;
+$closeup-size: 60%;
+$lens-size: 2rem;
+$closeup-timeline-size: 6rem;
+$bigpicture-timeline-size: 4rem;
+
+
+
+#bigpicture{
+	height: calc($bigpicture-size - $lens-size/2);
+}
+
+#bigpicture-area{
+	height: calc(100% - $bigpicture-timeline-size);
+	background-color: white;
+	border-radius: 0 0 $timeline-border-radius $timeline-border-radius;
+}
+
+#bigpicture-timeline{
+	height: $bigpicture-timeline-size;
+	background-color: transparent;
+	position: relative;
+	user-select: none;
+	&::before, &::after{
+		content:"";
+		width:50px;
+		height: 100%;
+		position: absolute;
+		top:0;
+		z-index: 1;	
+	}
+	&::before{	
+		left:0;
+		background: linear-gradient(90deg, $gradient-color-left2 25%, transparent 100%); 
+	}
+	&::after{
+		right:0;
+		background: linear-gradient(90deg, transparent 0%, $gradient-color-right2 75%);
+	}
+
+	
+	
+	
+	#bigpicture-years{
+		width:max-content;
+		position: absolute;
+		height:100%;
+		left:0;
+		top:0;
+		.year-cont{
+			overflow: hidden;
+			position: relative;
+			float:left;
+			top:0;
+			height:100%;
+			p {
+				position: absolute;
+				width:100%;
+				top:40%;
+				text-align: center;
+			}
+			.year{
+				top:0;
+				left:0;
+				height:50%;
+				width:100%;
+				box-shadow: -2px 0 0 0 white inset;
+				.half-year{
+					width:50%;
+					height:50%;
+					float: right;
+					box-shadow: -2px 0  0 0 white inset;
+					.quarter{
+						width:50%;
+						height:65%;
+						float: right;
+						box-shadow: -2px 0  0 0 white inset;
+						.month{
+							width:33.33%;
+							height:60%;
+							float: right;
+							box-shadow: -1px 0  0 0 white inset;
+						}
+					}
+				}
+			}
+			&.small-years{
+				padding: 0 $timeline-days-gap;
+				.year{
+					position: relative;
+					top:0.5rem;
+					left:0;
+					height:1.5rem;
+					width:100%;
+					box-shadow: none;
+					background: white;
+					border-radius: 1rem;
+					p {
+						position: inherit;
+						width:100%;
+						top:0;
+						text-align: center;
+						color: $middle-color;
+						font-size: 0.9rem;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+#timeline-lens {
+	position: relative;
+	height: $lens-size;
+
+	.lens{
+		background-color: white;
+		height:100%;
+		width: 100%;
+		position: absolute;
+		&.start{ 
+			left:0; 
+			border-radius: 0 5vh 5vh 0; 
+		}
+		&.end{ 
+			right:0;
+			border-radius: 5vh 0 0 5vh;
+		}
+
+	}
+}
+
+
+
+
+#closeup{
+	height:calc($closeup-size - $lens-size/2);
+}
+
+#closeup-timeline{
+	height: $closeup-timeline-size;
+	width: 100%;
+	background-color: transparent;
+	position: relative;
+	user-select: none;
+	overflow: hidden;
+
+	&::before, &::after{
+		content: "";
+		width: 50px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		z-index: 1;
+	}
+	&::before{	
+		left:0;
+		background: linear-gradient(90deg, $gradient-color-left2 15%, transparent 100%); 
+	}
+	&::after{
+		right:0;
+		background: linear-gradient(90deg, transparent 0%, $gradient-color-right2 75%);
+	}
+
+
+	#closeup-years{
+		position: absolute;
+		width: max-content;
+		left:0;
+		top:1.5rem;
+		z-index:10;
+		.closeup-year {
+			height: 1.5rem;
+			font-size: 0.8rem;
+			line-height: 1.5rem;
+			float:left;
+			color:white;
+			border-right: 1px solid white;
+			border-left: 1px solid white;
+			.start, .end{
+				padding: 0 0.5rem;
+				width:50%;
+				float:left;
+			}
+			.start{ text-align: left; }
+			.end{ text-align: right; }
+		}
+	}
+
+
+	#closeup-months{
+		position: absolute;
+		width: max-content;
+		left:0;
+		top:0;
+		z-index:10;
+		.closeup-month{
+			font-weight: bold;
+			height: 1.5rem;
+			float:left;
+			color:white;
+			border-right: 1px solid white;
+			border-left: 1px solid white;
+			.start, .end{
+				padding: 0 0.5rem;
+				width:50%;
+				float:left;
+			}
+			.start{ text-align: left; }
+			.end{ text-align: right; }
+		}
+	}
+
+
+	#closeup-days{
+		position: absolute;
+		width: max-content;
+		bottom: 0;
+		left: 0;
+		.closeup-week{
+			float: left;
+			height: 1.5rem;
+			margin-bottom: 0.5rem;
+			padding: 0 $timeline-days-gap;
+			.week{
+				width:100%;
+				height:100%;
+				border-radius: 1rem;
+				background: $timeline-color-2;
+				.work-week{
+					background-color: white;
+					border-radius: 1rem;
+					height:100%;
+					.week-title{
+						color: $middle-color;
+						margin: 0 0 0 1rem;
+						padding:0;
+						line-height: 1.5rem;
+						vertical-align: bottom;
+						display: inline-block;
+						font-size: 0.9rem;
+						font-weight:bold;
+					}
+				}
+			}
+		}
+		.closeup-day{
+			float: left;
+			box-sizing: border-box;
+			height: 1.5rem;
+			margin-bottom: 0.5rem;
+			padding: 0 $timeline-days-gap;
+			.day{
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background: white;
+				border-radius: 1rem;
+				color: $middle-color;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: initial;
+				.day-num{
+					position: relative;
+					padding: 0;
+					margin:0;
+					z-index: 10;
+					font-size: 0.9rem;
+					font-weight:bold;
+				}
+			}
+			&.sb .day, &.nd .day {
+				background:$timeline-color-2;
+				color:white;
+			}
+
+			&.day-night {
+				.day{
+					background: $timeline-color-2;
+					box-shadow:none;
+					.day-num{
+						color: white;
+						top:-1.5rem;
+						line-height:1rem;
+						font-size: 0.8rem;
+					}
+					.day-light{
+						position: absolute;
+						height:100%;
+						background: white;
+						border-radius: 1rem;
+
+					}
+				}
+			}
+
+			&.hours {
+				margin-bottom:1.8rem;
+				height:0.7rem;
+				.day, .sb .day, .nd .day{
+					background: $timeline-color-2;
+					box-shadow:none;
+					border-radius: 1rem;
+					.closeup-hours{
+						position: absolute;
+						width: calc(100% + 2 * $timeline-days-gap);
+						margin-left: -$timeline-days-gap;
+						bottom:-1.8rem;
+						height: 1.5rem;
+						color:white;
+						.six-h{
+							position: absolute;
+							bottom:0;
+							width:25%;
+							float:left;
+							height:0.5rem;
+							border-left: 1px solid white;
+							border-right: 1px solid white;
+							&:nth-child(2){ left:25% }
+							&:nth-child(3){ left:50% }
+							&:nth-child(4){ left:75% }
+							.three-h {
+								width: 33.33%;
+								height: 60%;
+								position: absolute;
+								bottom: 0;
+								left:0;
+								box-shadow: -1px 0 0 0 inset #fff9;
+								&:nth-child(2){ left:33.33% }
+							}
+							p {
+								position: absolute;
+								bottom:0.6rem;
+								margin:0;
+								width:100%;
+								height:1rem;
+								line-height: 1rem;
+								font-size: 0.7rem;
+								font-weight: bold;
+								left:calc(-50% - 1px);
+								text-align: center;
+								&::after{
+									content:":00";
+								}
+							}
+						}
+					}
+					.day-num{
+						color: white;
+						top: -1.5rem;
+						line-height:1rem;
+						font-size: 0.8rem;
+						font-weight: normal;
+					}
+					.day-light{
+						position: absolute;
+						height:100%;
+						background: white;
+						border-radius: 1rem;
+
+					}
+				}
+			}
+			
+		}
+	}
+}
+
+.time-content {
+	position: relative;
+	overflow: hidden;
+	.area-mesh{
+		position: absolute;
+		width:100%;
+		height:100%;
+		.divider {
+			width: 7vw;
+			height: 100%;
+			border-left: 1px solid rgba($middle-color, .35);
+			float: left;
+			.subdivider {
+				height:100%;
+				float:left;
+				box-shadow: -1px 0 0 0 rgba($middle-color, .2) inset;
+			}
+		}
+	}
+	.modules {
+		position: absolute; 
+		width: 100%; 
+		height: 100%;
+		padding-top:1rem;
+		.module-line {
+			height: 50%;
+			
+		}
+	}
+	
+}
+
+
+
+#closeup-area{
+	height: calc(100% - $closeup-timeline-size);
+	background-color: white;
+	border-radius:  $timeline-border-radius $timeline-border-radius 0 0;
+}

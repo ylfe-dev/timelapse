@@ -1,0 +1,68 @@
+ [
+	{
+		"type": "pattern",
+		"title": "testowy pattern 1",
+		"icon": "https://randomuser.me/api/portraits/thumb/men/3.jpg",
+		"tags": ["bills"],
+		"pattern": {
+			"type": "WEEK",
+			"template": {
+				"start":"0111000",
+				"end": null
+			}
+		},
+		"period": {
+			"from": 2022.96712,
+			"to": 2023.43013
+		},
+		"rythm": {			
+			"unit": "DAY",
+			"value": 90
+		}
+	},
+
+
+	{
+		"type": "pattern",
+		"title": "testowy pattern 2",
+		"icon": "https://randomuser.me/api/portraits/thumb/women/3.jpg",
+		"tags": ["bills"],
+		"pattern": {
+			"type": "WEEK",
+			"template": {
+				"start":"0111000",
+				"end": null
+			}
+		},
+		"period": {
+			"from": 2023.06027,
+			"to": 2023.14520
+		},
+		"rythm": {			
+			"unit": "Month",
+			"value": 1
+		}
+	},
+
+	{
+		"type": "pattern",
+		"title": "testowy pattern 3",
+		"icon": "https://randomuser.me/api/portraits/thumb/women/7.jpg",
+		"tags": ["bills"],
+		"pattern": {
+			"type": "WEEK",
+			"template": {
+				"start":"0111000",
+				"end": null
+			}
+		},
+		"period": {
+			"from": 2023.14520,
+			"to": 2023.30684
+		},
+		"rythm": {			
+			"unit": "Month",
+			"value": 1
+		}
+	}
+]

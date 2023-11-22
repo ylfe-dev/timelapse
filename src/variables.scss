@@ -1,0 +1,17 @@
+$navbar-top-size:5rem;
+$navbar-left-size: 14rem;
+$navbar-left-space: 0rem;
+
+$gradient-color-left: rgba(0,131,196,1);
+$gradient-color-right: rgba(126,25,223,1);
+
+$gradient-color-left2: rgb(189, 13, 62);
+$gradient-color-right2: rgb(249, 117, 0);
+
+$timeline-border-radius: 2rem;
+$timeline-days-gap: 0.2rem;
+$timeline-color-1: white;
+$timeline-color-2: rgba(255, 255, 255, 0.24);
+
+//auto
+$middle-color: mix($gradient-color-left2, $gradient-color-right2, 50%);

@@ -1,0 +1,39 @@
+$row-size: 3rem;
+$bar-padding: 0.2rem;
+$row-gap: 0.5rem;
+
+.TimeProgrammer {
+	.event-bar {
+		position: absolute;
+		height: $row-size;
+		background: #cc262f;
+		border-radius: $row-size;
+		padding: $bar-padding;
+		user-select: none;
+		.icon{
+			height: calc($row-size - 2 * $bar-padding);
+			width: calc($row-size - 2 * $bar-padding);
+			float: left;
+			border-radius: $row-size;
+		}
+		p {
+			display: block;
+			color: #fff;
+			margin: 0;
+			line-height: 2.4rem;
+			padding: 0 1rem;
+			height: calc($row-size - 2 * $bar-padding);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			line-height: 2.4rem;
+		}
+		&.r1 { top: 0; background: #0eac8e; }
+		&.r2 { top: calc( 1 * ( $row-size + $row-gap ) ); background: #0e71ac; }
+		&.r3 { top: calc( 2 * ( $row-size + $row-gap ) ); background: #5dac0e; }
+		&.r4 { top: calc( 3 * ( $row-size + $row-gap ) ); background: #273cae; }
+		&.r5 { top: calc( 4 * ( $row-size + $row-gap ) ); background: #b90071; }
+	}
+	
+
+}
